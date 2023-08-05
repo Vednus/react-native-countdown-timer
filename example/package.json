@@ -9,6 +9,9 @@
     "pods": "pod-install --quiet"
   },
   "dependencies": {
+    "expo": "^49.0.0",
+    "expo-asset": "~8.10.1",
+    "expo-file-system": "~15.4.2",
     "react": "18.2.0",
     "react-native": "0.72.3"
   },
@@ -18,8 +21,8 @@
     "@babel/runtime": "^7.20.0",
     "@react-native/eslint-config": "^0.72.2",
     "@react-native/metro-config": "^0.72.9",
-    "metro-react-native-babel-preset": "0.76.7",
-    "babel-plugin-module-resolver": "^5.0.0"
+    "babel-plugin-module-resolver": "^5.0.0",
+    "metro-react-native-babel-preset": "0.76.7"
   },
   "engines": {
     "node": ">=16"

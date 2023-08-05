@@ -49,7 +49,7 @@ export function setSoundFileURI(uriString: string): Promise<number> {
 const setDefaultSoundFile = async () => {
   if (Platform.OS === 'android') {
     // @ts-ignore
-    const defaultSoundFile = require('./assets/bell.mp3');
+    const defaultSoundFile = require('../assets/bell.mp3');
     const localUri = Asset.fromModule(defaultSoundFile).uri;
     CountdownTimer.setSoundFileURI(localUri);
   } else {
@@ -59,10 +59,13 @@ const setDefaultSoundFile = async () => {
 
     try {
       const { exists } = await FileSystem.getInfoAsync(soundFilePath);
+      const bellAsset = await Asset.fromModule(
+        require('../assets/bell.mp3')
+      ).downloadAsync();
       if (!exists) {
         await FileSystem.copyAsync({
           // @ts-ignore
-          from: Asset.fromModule(require('./assets/bell.mp3')).uri,
+          from: bellAsset.localUri,
           to: soundFilePath,
         });
       }
